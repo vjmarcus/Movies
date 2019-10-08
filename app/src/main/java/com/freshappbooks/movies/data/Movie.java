@@ -5,18 +5,19 @@ public class Movie {
     private int id;
     private int voteCount;
     private String title;
-    private String originalTltle;
+    private String originTitle;
     private String posterPath;
     private String backDropPath;
     private double voteAverage;
     private String releaseDate;
 
 
+
     public Movie(int id, int voteCount, String title, String originalTltle, String posterPath, String backDropPath, double voteAverage, String releaseDate) {
         this.id = id;
         this.voteCount = voteCount;
         this.title = title;
-        this.originalTltle = originalTltle;
+        this.originTitle = originalTltle;
         this.posterPath = posterPath;
         this.backDropPath = backDropPath;
         this.voteAverage = voteAverage;
@@ -47,12 +48,12 @@ public class Movie {
         this.title = title;
     }
 
-    public String getOriginalTltle() {
-        return originalTltle;
+    public String getOriginTitle() {
+        return originTitle;
     }
 
-    public void setOriginalTltle(String originalTltle) {
-        this.originalTltle = originalTltle;
+    public void setOriginTitle(String originTitle) {
+        this.originTitle = originTitle;
     }
 
     public String getPosterPath() {
