@@ -37,6 +37,10 @@ public class MainViewModel extends AndroidViewModel {
         new DeleteMoviesTask().execute();
     }
 
+    public LiveData<List<Movie>> getMovies() {
+        return movies;
+    }
+
     public void insertMovie(Movie movie) {
         new InsertMovieTask().execute(movie);
     }
@@ -68,9 +72,7 @@ public class MainViewModel extends AndroidViewModel {
     private static class DeleteMoviesTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... integers) {
-            if (integers != null && integers.length > 0) {
                 database.movieDao().deleteAllMovies();
-            }
             return null;
         }
     }
@@ -84,4 +86,6 @@ public class MainViewModel extends AndroidViewModel {
             return null;
         }
     }
+
+
 }
