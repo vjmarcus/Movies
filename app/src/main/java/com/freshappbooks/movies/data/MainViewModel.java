@@ -35,6 +35,17 @@ public class MainViewModel extends AndroidViewModel {
         return null;
     }
 
+    public FavouriteMovie getFavouriteMovieById(int id) {
+        try {
+            return new GetFavouriteMovieTask().execute(id).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public LiveData<List<FavouriteMovie>> getFavouriteMovies() {
         return favouriteMovies;
     }
@@ -120,6 +131,16 @@ public class MainViewModel extends AndroidViewModel {
         protected Movie doInBackground(Integer... integers) {
             if (integers != null && integers.length > 0) {
                 return database.movieDao().getMovieById(integers[0]);
+            }
+            return null;
+        }
+    }
+
+    private static class GetFavouriteMovieTask extends AsyncTask<Integer, Void, FavouriteMovie> {
+        @Override
+        protected FavouriteMovie doInBackground(Integer... integers) {
+            if (integers != null && integers.length > 0) {
+                return database.movieDao().getFavoriteMovieById(integers[0]);
             }
             return null;
         }

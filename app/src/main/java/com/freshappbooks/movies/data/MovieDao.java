@@ -33,4 +33,7 @@ public interface MovieDao {
 
     @Delete
     void deleteFavouriteMovie(FavouriteMovie movie);
+
+    @Query("SELECT * FROM favorite_movies WHERE id == :movieId")
+    FavouriteMovie getFavoriteMovieById(int movieId);
 }
