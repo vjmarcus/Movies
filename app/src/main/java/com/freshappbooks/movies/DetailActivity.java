@@ -2,6 +2,7 @@ package com.freshappbooks.movies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,5 +52,8 @@ public class DetailActivity extends AppCompatActivity {
         textViewRating.setText(Double.toString(movie.getVoteAverage()));
         textViewReleaseDate.setText(movie.getReleaseDate());
         textViewOverview.setText(movie.getOverview());
+    }
+
+    public void onClickChangeFavourite(View view) {
     }
 }
