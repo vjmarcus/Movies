@@ -3,4 +3,9 @@
     <string name="poster_of_movie">Постер к фильму</string>
     <string name="most_popular">Самые популярные</string>
     <string name="top_rated">Наиболее рейтинговые</string>
+    <string name="image_title">Название:</string>
+    <string name="original_title">Оригинальное название</string>
+    <string name="rating">Рейтинг:</string>
+    <string name="release_date">Дата выхода:</string>
+    <string name="description">Описание:</string>
 </resources>

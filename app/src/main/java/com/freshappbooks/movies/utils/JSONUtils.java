@@ -46,7 +46,7 @@ public class JSONUtils {
                 double voteAverage =  objectMovie.getDouble(KEY_VOTE_AVERAGE);
                 String releaseDate = objectMovie.getString(KEY_RELEASE_DATE);
 
-                Movie movie = new Movie(id, voteCount, title, originalTitle, posterPath, bigPosterPath, backDropPath, voteAverage, releaseDate);
+                Movie movie = new Movie(id, voteCount, title, originalTitle, overview, posterPath, bigPosterPath, backDropPath, voteAverage, releaseDate);
                 result.add(movie);
             }
         } catch (JSONException e) {
