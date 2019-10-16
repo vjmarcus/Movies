@@ -122,7 +122,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView_big_poster"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView_big_poster"
-            app:srcCompat="@drawable/icons8_48" />
+            app:srcCompat="@drawable/icons8_white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

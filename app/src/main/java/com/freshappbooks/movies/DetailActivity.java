@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
-
+import com.freshappbooks.movies.data.FavouriteMovie;
 import com.freshappbooks.movies.data.MainViewModel;
 import com.freshappbooks.movies.data.Movie;
 import com.squareup.picasso.Picasso;
@@ -18,21 +18,24 @@ import com.squareup.picasso.Picasso;
 public class DetailActivity extends AppCompatActivity {
 
     private ImageView imageViewBigPoster;
+    private ImageView imageViewAddToFavorite;
     private TextView textViewTitle;
     private TextView textViewOriginTitle;
     private TextView textViewRating;
     private TextView textViewReleaseDate;
     private TextView textViewOverview;
-
+    private Movie movie;
+    private FavouriteMovie favouriteMovie;
     private int id;
 
-    private ViewModel viewModel;
+    private MainViewModel viewModel;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
         imageViewBigPoster = findViewById(R.id.imageView_big_poster);
+        imageViewAddToFavorite = findViewById(R.id.image_add_to_favorite);
         textViewTitle = findViewById(R.id.textView_title);
         textViewOriginTitle = findViewById(R.id.textView_original_title);
         textViewRating = findViewById(R.id.textView_rating);
@@ -45,15 +48,35 @@ public class DetailActivity extends AppCompatActivity {
             finish();
         }
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        Movie movie = ((MainViewModel) viewModel).getMovieById(id);
+        movie = viewModel.getMovieById(id);
         Picasso.get().load(movie.getBigPosterPath()).into(imageViewBigPoster);
         textViewTitle.setText(movie.getTitle());
         textViewOriginTitle.setText(movie.getOriginTitle());
         textViewRating.setText(Double.toString(movie.getVoteAverage()));
         textViewReleaseDate.setText(movie.getReleaseDate());
         textViewOverview.setText(movie.getOverview());
+        setFavorite();
     }
 
     public void onClickChangeFavourite(View view) {
+        favouriteMovie = viewModel.getFavouriteMovieById(id);
+        if ( favouriteMovie == null) {
+            viewModel.insertFavouriteMovie(new FavouriteMovie(movie));
+            Toast.makeText(this, R.string.add_to_favorite, Toast.LENGTH_SHORT).show();
+        } else {
+            viewModel.deleteFavouriteMovie(favouriteMovie);
+            Toast.makeText(this, R.string.remove_from_favorite, Toast.LENGTH_SHORT).show();
+        }
+        setFavorite();
+    }
+
+
+    private void setFavorite() {
+        favouriteMovie = viewModel.getFavouriteMovieById(id);
+        if (favouriteMovie == null) {
+            imageViewAddToFavorite.setImageResource(R.drawable.icons8_white);
+        } else {
+            imageViewAddToFavorite.setImageResource(R.drawable.icons8_yellow);
+        }
     }
 }
