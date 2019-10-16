@@ -1,6 +1,10 @@
 package com.freshappbooks.movies;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,5 +45,37 @@ public class FavouriteActivity extends AppCompatActivity {
                 movieAdapter.setMovies(movies);
             }
         });
+        movieAdapter.setOnPosterClickListener(new MovieAdapter.OnPosterClickListener() {
+            @Override
+            public void onPosterClick(int position) {
+                Movie movie = movieAdapter.getMovies().get(position);
+                Intent intent = new Intent(FavouriteActivity.this, DetailActivity.class);
+                intent.putExtra("id", movie.getId());
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id)  {
+            case R.id.item_main:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.item_favourite:
+                Intent intentToFavorite = new Intent(this, FavouriteActivity.class);
+                startActivity(intentToFavorite);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

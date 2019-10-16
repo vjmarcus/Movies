@@ -2,6 +2,9 @@ package com.freshappbooks.movies;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -78,5 +81,28 @@ public class DetailActivity extends AppCompatActivity {
         } else {
             imageViewAddToFavorite.setImageResource(R.drawable.icons8_yellow);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id)  {
+            case R.id.item_main:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.item_favourite:
+                Intent intentToFavorite = new Intent(this, FavouriteActivity.class);
+                startActivity(intentToFavorite);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
