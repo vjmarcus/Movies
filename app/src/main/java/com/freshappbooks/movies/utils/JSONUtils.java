@@ -11,6 +11,15 @@ import java.util.ArrayList;
 public class JSONUtils {
 
     private static final String KEY_RESULTS = "results";
+
+    //FOR REVIEWS
+    private static final String KEY_AUTHOR = "author";
+    private static final String KEY_CONTENT = "content";
+
+    //FOR TRAILERS VIDEO
+    private static final String KEY_OF_VIDEO = "key_of_video";
+    private static final String KEY_NAME = "key_name";
+
     private static final String KEY_VOTE_COUNT = "vote_count";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
