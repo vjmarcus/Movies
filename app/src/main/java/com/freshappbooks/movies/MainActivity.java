@@ -18,6 +18,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.freshappbooks.movies.adapters.MovieAdapter;
 import com.freshappbooks.movies.data.MainViewModel;
 import com.freshappbooks.movies.data.Movie;
 import com.freshappbooks.movies.utils.JSONUtils;

@@ -1,4 +1,4 @@
-package com.freshappbooks.movies;
+package com.freshappbooks.movies.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.freshappbooks.movies.R;
 import com.freshappbooks.movies.data.Movie;
 import com.squareup.picasso.Picasso;
 

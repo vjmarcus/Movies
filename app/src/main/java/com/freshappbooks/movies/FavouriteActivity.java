@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.freshappbooks.movies.adapters.MovieAdapter;
 import com.freshappbooks.movies.data.FavouriteMovie;
 import com.freshappbooks.movies.data.MainViewModel;
 import com.freshappbooks.movies.data.Movie;
