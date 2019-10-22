@@ -28,7 +28,7 @@ public class NetworkUtils {
     private static final String PARAMS_PAGE = "page";
 
     private static final String API_KEY = "725a8d94c862ce7ef91cb8371e4e8441";
-    private static final String LANGUAGE_VALUE = "ru-RU";
+    private static final String LANGUAGE_VALUE = "En-EN";
     private static final String SORT_BY_POPULARITY = "popularity.desc";
     private static final String SORT_BY_TOP_RATED = "vote_average.desc";
 
@@ -51,7 +51,7 @@ public class NetworkUtils {
     private static URL buildURLToReviews(int id){
         Uri uri = Uri.parse(String.format(BASE_URL_REVIEWS, id)).buildUpon()
                 .appendQueryParameter(PARAMS_API_KEY, API_KEY)
-                .appendQueryParameter(PARAMS_LANGUAGE, LANGUAGE_VALUE)
+//                .appendQueryParameter(PARAMS_LANGUAGE, LANGUAGE_VALUE)
                 .build();
         try {
             return new URL(uri.toString());

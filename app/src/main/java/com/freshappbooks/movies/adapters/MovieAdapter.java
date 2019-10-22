@@ -24,11 +24,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         movies = new ArrayList<>();
     }
 
-    interface OnPosterClickListener {
+   public interface OnPosterClickListener {
         void onPosterClick(int position);
     }
 
-    interface OnReachAndListener {
+  public   interface OnReachAndListener {
         void onReachEnd();
     }
 
