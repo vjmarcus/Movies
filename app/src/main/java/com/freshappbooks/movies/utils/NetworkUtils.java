@@ -1,7 +1,9 @@
 package com.freshappbooks.movies.utils;
 
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,10 +40,12 @@ public class NetworkUtils {
     private static URL buildURLToVideos(int id){
         Uri uri = Uri.parse(String.format(BASE_URL_VIDEOS, id)).buildUpon()
                 .appendQueryParameter(PARAMS_API_KEY, API_KEY)
-                .appendQueryParameter(PARAMS_LANGUAGE, LANGUAGE_VALUE)
+//                .appendQueryParameter(PARAMS_LANGUAGE, LANGUAGE_VALUE)
                 .build();
         try {
+            Log.v("MyApp", "buildURLToVideos = " + uri.toString());
             return new URL(uri.toString());
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -54,6 +58,7 @@ public class NetworkUtils {
 //                .appendQueryParameter(PARAMS_LANGUAGE, LANGUAGE_VALUE)
                 .build();
         try {
+            Log.v("MyApp", "buildURLToReviews = " + uri.toString());
             return new URL(uri.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();

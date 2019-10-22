@@ -1,7 +1,9 @@
 package com.freshappbooks.movies;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -86,7 +88,8 @@ public class DetailActivity extends AppCompatActivity {
         trailerAdapter.setOnTrailerClickListener(new TrailerAdapter.OnTrailerClickListener() {
             @Override
             public void onTrailerClick(String url) {
-                Toast.makeText(DetailActivity.this, url, Toast.LENGTH_SHORT).show();
+                Intent intentGoToYoutube = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intentGoToYoutube);
             }
         });
 
@@ -97,7 +100,9 @@ public class DetailActivity extends AppCompatActivity {
         recyclerViewTrailers.setAdapter(trailerAdapter);
         JSONObject jsonObjectTrailers = NetworkUtils.getJSONForVideos(movie.getId());
         JSONObject jsonObjectReviews = NetworkUtils.getJSONForReviews(movie.getId());
+        Log.v("MyApp", "jsonObjectTrailers = " + jsonObjectTrailers);
         ArrayList <Trailer> trailers = JSONUtils.getVideosFromJSON(jsonObjectTrailers);
+        Log.v("MyApp", trailers.toString());
         ArrayList<Review> reviews = JSONUtils.getReviewsFromJSON(jsonObjectReviews);
         reviewAdapter.setReviews(reviews);
         trailerAdapter.setTrailers(trailers);

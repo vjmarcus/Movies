@@ -21,8 +21,8 @@ public class JSONUtils {
     private static final String KEY_CONTENT = "content";
 
     //FOR TRAILERS VIDEO
-    private static final String KEY_OF_VIDEO = "key_of_video";
-    private static final String KEY_NAME = "key_name";
+    private static final String KEY_OF_VIDEO = "key";
+    private static final String KEY_NAME = "name";
     private static final String BASE_YOUTUBE_URL = "https://www.youtube.com/watch?v=";
 
     private static final String KEY_VOTE_COUNT = "vote_count";
