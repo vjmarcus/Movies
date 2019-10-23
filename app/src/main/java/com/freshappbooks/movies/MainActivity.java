@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private MovieAdapter movieAdapter;
     private Switch swichSort;
     private TextView textViewTopRated, textViewPopularity;
+    private ProgressBar progressBar;
 
     private MainViewModel viewModel;
 
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(movieAdapter);
         swichSort.setChecked(true);
+        progressBar = findViewById(R.id.progress_bar);
         swichSort.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         moviesFromLiveData.observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
-                movieAdapter.setMovies(movies);
+
             }
         });
     }
@@ -143,4 +146,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }
