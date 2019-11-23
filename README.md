@@ -3,6 +3,7 @@ Movie App with screenshots - API, Room, LiveData, ViewModel
 
 Made with ❤ by vjmarcus
 
-![Альтернативный текст](http://www.picshare.ru/uploads/191107/3shG2HD4KS.jpg)
-![Альтернативный текст](http://www.picshare.ru/uploads/191107/TwvB83KqiS.jpg)
-![Альтернативный текст](http://www.picshare.ru/uploads/191107/0W1x88BOcY.jpg)
+![Альтернативный текст](https://i.ibb.co/Lt1d1WQ/Screenshot-1573132794.png)
+![Альтернативный текст](https://i.ibb.co/yPtd6yF/Screenshot-1573132785.png)
+![Альтернативный текст](https://i.ibb.co/zfQqMvp/Screenshot-1573132777.png)
+
